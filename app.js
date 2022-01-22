@@ -9,6 +9,20 @@ const createCardboard = (rows, columns) => {
   return cardboard;
 };
 
+class DefaultCell {
+  row;
+  column;
+  status = "";
+  neighborsAlive;
+
+  constructor(row, column) {
+    this.row = row;
+    this.column = column;
+  }
+
+  checkForAliveNeighbors = () => {};
+}
+
 console.table(createCardboard(10, 10));
 
 describe("Given a crateCardboard", () => {
