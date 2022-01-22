@@ -38,14 +38,54 @@ const createCardboard = (rows, columns) => {
   return cardboard;
 };
 
-let gameOfLife = createCardboard(10, 10);
+const setRow = 10;
+const setColumn = 10;
+
+let gameOfLife = createCardboard(setRow, setColumn);
 
 const countAliveCells = (row, column) => {
   let aliveNeighbors = 0;
 
   for (let i = -1; i < 2; i++) {
     for (let j = -1; j < 2; j++) {
-      if (gameOfLife[row + i][column + j].status && i !== 0 && j !== 0) {
+      if (row === 0 && column === 0 && i !== -1 && j !== -1) {
+        if (gameOfLife[row + i][column + j].status) {
+          aliveNeighbors += 1;
+        }
+      } else if (row === 0 && column === setColumn - 1 && i !== -1 && j !== 1) {
+        if (gameOfLife[row + i][column + j].status) {
+          aliveNeighbors += 1;
+        }
+      } else if (row === setRow - 1 && column === 0 && i !== 1 && j !== -1) {
+        if (gameOfLife[row + i][column + j].status) {
+          aliveNeighbors += 1;
+        }
+      } else if (
+        row === setRow - 1 &&
+        column === setColumn - 1 &&
+        i !== 1 &&
+        j !== 1
+      ) {
+        if (gameOfLife[row + i][column + j].status) {
+          aliveNeighbors += 1;
+        }
+      } else if (row === 0 && i !== -1) {
+        if (gameOfLife[row + i][column + j].status) {
+          aliveNeighbors += 1;
+        }
+      } else if (row === setRow - 1 && i !== 1) {
+        if (gameOfLife[row + i][column + j].status) {
+          aliveNeighbors += 1;
+        }
+      } else if (column === 0 && j !== -1) {
+        if (gameOfLife[row + i][column + j].status) {
+          aliveNeighbors += 1;
+        }
+      } else if (column === setColumn - 1 && j !== 1) {
+        if (gameOfLife[row + i][column + j].status) {
+          aliveNeighbors += 1;
+        }
+      } else if (gameOfLife[row + i][column + j].status && i !== 0 && j !== 0) {
         aliveNeighbors += 1;
       }
     }
