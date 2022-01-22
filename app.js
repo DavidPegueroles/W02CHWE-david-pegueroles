@@ -9,6 +9,22 @@ const createCardboard = (rows, columns) => {
   return cardboard;
 };
 
+const gameOfLife = createCardboard(10, 10);
+
+const countAliveCells = (row, column) => {
+  let aliveNeighbors = 0;
+
+  for (let i = -1; i < 2; i++) {
+    for (let j = -1; j < 2; j++) {
+      if (gameOfLife[row + i][column + j].status && i !== 0 && j !== 0) {
+        aliveNeighbors += 1;
+      }
+    }
+  }
+
+  return aliveNeighbors;
+};
+
 class DefaultCell {
   row;
   column;
@@ -20,10 +36,14 @@ class DefaultCell {
     this.column = column;
   }
 
-  checkForAliveNeighbors = () => {};
+  checkForAliveNeighbors = () => {
+    const x = this.row;
+    const y = this.column;
+    countAliveCells(x, y);
+  };
 }
 
-console.table(createCardboard(10, 10));
+console.table(gameOfLife);
 
 describe("Given a crateCardboard", () => {
   describe("When it receives 2, 2", () => {
