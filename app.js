@@ -36,11 +36,11 @@ class DefaultCell {
     this.column = column;
   }
 
-  checkForAliveNeighbors = () => {
+  checkForAliveNeighbors() {
     const x = this.row;
     const y = this.column;
-    countAliveCells(x, y);
-  };
+    this.neighborsAlive = countAliveCells(x, y);
+  }
 }
 
 console.table(gameOfLife);
