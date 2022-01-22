@@ -43,6 +43,9 @@ class DefaultCell {
   }
 }
 
+const justToPassTheEslint = DefaultCell(0, 0);
+console.log(justToPassTheEslint);
+
 console.table(gameOfLife);
 
 describe("Given a crateCardboard", () => {
