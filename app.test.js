@@ -15,6 +15,16 @@ class DefaultCell {
     // eslint-disable-next-line no-use-before-define
     this.neighborsAlive = countAliveCells(x, y);
   }
+
+  nextGeneration() {
+    if (this.status) {
+      if (this.aliveNeighbors < 2 || this.aliveNeighbors > 3) {
+        this.status = "";
+      }
+    } else if (this.aliveNeighbors === 3) {
+      this.status = "alive";
+    }
+  }
 }
 
 const createCardboard = (rows, columns) => {
