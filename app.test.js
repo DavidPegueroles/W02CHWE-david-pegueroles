@@ -62,8 +62,8 @@ describe("Given a crateCardboard function", () => {
 });
 
 describe("Given a gameOfLife and countAliveCells functions", () => {
-  describe("When it receives 2, 2", () => {
-    test.only("it", () => {
+  describe("When it receives 3,3 and 1,1 respectively", () => {
+    test.only("It should return 0", () => {
       const number1 = 3;
       const number2 = 3;
       const number3 = 1;
@@ -71,6 +71,24 @@ describe("Given a gameOfLife and countAliveCells functions", () => {
       const expectedNumber = 0;
 
       gameOfLife = createCardboard(number1, number2);
+      const numberOfActiveCells = countAliveCells(number3, number4);
+
+      expect(numberOfActiveCells).toBe(expectedNumber);
+    });
+  });
+
+  describe("When it receives 3,3 and 1,1 respectively, and assign 'alive' to gameOfLife[0][0]", () => {
+    test.only("It should return 1", () => {
+      const number1 = 3;
+      const number2 = 3;
+      const number3 = 1;
+      const number4 = 1;
+      const number5 = 0;
+      const number6 = 0;
+      const expectedNumber = 1;
+
+      gameOfLife = createCardboard(number1, number2);
+      gameOfLife[number5][number6].status = "alive";
       const numberOfActiveCells = countAliveCells(number3, number4);
 
       expect(numberOfActiveCells).toBe(expectedNumber);
