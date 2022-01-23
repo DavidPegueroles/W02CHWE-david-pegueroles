@@ -18,3 +18,18 @@ body {
     margin-left: 50px;
   }
 }
+
+.footer {
+  background-color: black;
+  color: white;
+  font-family: "Mochiy Pop P One", sans-serif;
+  font-size: 10px;
+
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
