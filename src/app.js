@@ -31,8 +31,21 @@ const createCardboard = (rows, columns) => {
   const cardboard = [[]];
   for (let i = 0; i < rows; i++) {
     cardboard[i] = [];
+
+    const divOut = document.createElement("div");
+    divOut.id = `${i}`;
+    divOut.className = "divOut";
+
+    document.querySelector("#megaGrid").appendChild(divOut);
+
     for (let j = 0; j < columns; j++) {
       cardboard[i][j] = new DefaultCell(i, j);
+
+      const divInside = document.createElement("div");
+      divInside.id = `${i}-${j}`;
+      divInside.className = "divInside";
+
+      divOut.appendChild(divInside);
     }
   }
   return cardboard;
@@ -93,6 +106,10 @@ const countAliveCells = (row, column) => {
 
   return aliveNeighbors;
 };
+
+// ----- DOM Declarations ------------------------------------
+
+// ----- Tests -----------------------------------------------
 
 describe("Given a crateCardboard function", () => {
   describe("When it receives 2, 2", () => {
