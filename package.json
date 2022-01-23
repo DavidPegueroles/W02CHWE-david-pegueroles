@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest —-watchAll —-verbose",
     "prepare": "husky install",
-    "compile": "sass —watch"
+    "compile": "sass —-watch"
   },
   "repository": {
     "type": "git",
