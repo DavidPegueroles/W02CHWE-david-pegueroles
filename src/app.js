@@ -56,6 +56,12 @@ const setColumn = 10;
 
 let gameOfLife = createCardboard(setRow, setColumn);
 
+document.getElementById("size__button").onclick = function changeSize() {
+  const size = document.getElementById("size__bar").value;
+  document.getElementsByClassName("divInside").style.width = size;
+  document.getElementsByClassName("divInside").style.height = size;
+};
+
 const countAliveCells = (row, column) => {
   let aliveNeighbors = 0;
 
